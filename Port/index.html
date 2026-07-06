@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivan Grace Glorioso — Residential Quantity Take-Off Specialist & Cost Estimator</title>
+
+<!-- Fonts (loaded from Google Fonts) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<!-- All colors/layout/design live in styles.css. Edit that file to change how the page looks. -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grid-bg">
+
+  <!-- =========================================================
+       NAVIGATION BAR
+       Edit the menu links here. Each <a href="#about"> must
+       match an id="about" further down the page.
+       ========================================================= -->
+  <header>
+    <div class="logo">IVAN GRACE GLORIOSO<span>.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills &amp; tools</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#contact">Contact me</a>
+
+    <!-- Hamburger menu button, only visible on mobile (see script.js for click behavior) -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills &amp; tools</a>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO SECTION
+       The big headline + intro paragraph + 3 stat boxes.
+       ========================================================= -->
+  <section class="hero">
+    <p class="eyebrow">Residential Quantity Take-Off Specialist · COSTX Estimator</p>
+
+    <h1>Precise quantities.<br>Reliable estimates.<br><em>Faster bids.</em></h1>
+
+    <p class="lede">
+      I'm <strong>Ivan Grace Glorioso</strong>, a Quantity Surveyor and Cost Estimator
+      helping Australian residential builders and contractors turn drawings into accurate,
+      tender-ready numbers — BOQ preparation, COSTX take-offs, and cost estimation support
+      you can build a bid on.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn-primary" href="#portfolio">View portfolio →</a>
+      <a class="btn-secondary" href="#contact">Contact me</a>
+    </div>
+
+    <!-- The 3 "dimension line" stat boxes. Copy/paste one <div class="dim"> block to add a 4th. -->
+    <div class="dims">
+      <div class="dim">
+        <span class="tick-right"></span>
+        <span class="dim-value">COSTX</span>
+        <p class="dim-label">Primary take-off &amp; estimating software, backed by Bluebeam and PlanSwift</p>
+      </div>
+      <div class="dim">
+        <span class="tick-right"></span>
+        <span class="dim-value">100%</span>
+        <p class="dim-label">Residential-focused: single dwellings through multi-unit developments</p>
+      </div>
+      <div class="dim">
+        <span class="tick-right"></span>
+        <span class="dim-value">AEST</span>
+        <p class="dim-label">Flexible hours overlapping Australian business days</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT SECTION
+       Profile photo on the left, bio text + badges on the right.
+       ========================================================= -->
+  <section class="about" id="about">
+    <div class="about-photo">
+      <!-- If images/profile.jpg doesn't exist yet, handleImageError() (in script.js)
+           swaps it for the dashed placeholder box below. Just drop in the real
+           photo at that path later and it'll show automatically. -->
+      <img src="images/profile.png" alt="Ivan Grace Glorioso" onerror="handleImageError(this)">
+      <div class="thumb-placeholder" style="display:none;">
+        <div class="plus">+</div>
+
+        <span>images/profile.jpg</span>
+      </div>
+    </div>
+    <div>
+      <p class="section-eyebrow">About</p>
+      <h2>Quantity Surveyor, Cost Estimator, and engineer by training</h2>
+      <p>Quantity Surveyor and Cost Estimator with a Mechanical Engineering background and hands-on experience across residential and industrial construction. I specialise in residential quantity take-offs, BOQ preparation, and cost estimation support for Australian builders, using COSTX as my primary take-off software alongside Bluebeam and PlanSwift.</p>
+      <p>My engineering training shows up in how I work — methodical drawing interpretation, close attention to measurement accuracy, and estimates that hold up under scrutiny at tender stage. I've supported estimating teams through bidding, subcontractor coordination, and client-facing project documentation, and I bring the same discipline to every take-off, whether it's a single dwelling or a multi-unit residential development.</p>
+      <div class="about-badges">
+        <span class="badge">BS in Mechanical Engineering — PUP, 2018</span>
+        <span class="badge">MS in Engineering Management — Mapúa, 2021</span>
+        <span class="badge">Based in Manila, PH</span>
+        <span class="badge">AEST-overlapping hours</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SKILLS & TOOLS SECTION
+       3 highlighted primary-tool cards + a cloud of smaller tags.
+       ========================================================= -->
+  <section class="skills" id="skills">
+    <div class="skills-head">
+      <p class="section-eyebrow">Skills &amp; tools</p>
+      <h2>COSTX-led take-offs, backed by a full estimating toolkit</h2>
+      <p>COSTX is my primary platform for residential quantity take-offs and BOQ generation, supported by Bluebeam for drawing markup and PlanSwift for cross-checking quantities.</p>
+    </div>
+
+    <!-- Copy/paste one .tool-card block to add another primary tool. -->
+    <div class="primary-tools">
+      <div class="tool-card">
+        <span class="tool-role">Primary</span>
+        <p class="tool-name">COSTX</p>
+        <p>Digitiser-based take-offs, automated BOQ generation, and cost planning for residential projects.</p>
+      </div>
+      <div class="tool-card">
+        <span class="tool-role">Primary</span>
+        <p class="tool-name">Bluebeam</p>
+        <p>Drawing markup, measurement, and document review across architectural and structural sets.</p>
+      </div>
+      <div class="tool-card">
+        <span class="tool-role">Primary</span>
+        <p class="tool-name">PlanSwift</p>
+        <p>Take-off and quantification for residential scopes, used to cross-check COSTX outputs.</p>
+      </div>
+    </div>
+
+    <!-- Simple list of extra tools/software. Add or remove <img> tags as needed. -->
+    <p class="secondary-label">Also proficient in</p>
+    <div class="tag-cloud">
+      <img src="images/revit-logo.png" alt="Revit" onerror="handleImageError(this)">
+      <img src="images/autocad-logo.png" alt="AutoCAD" onerror="handleImageError(this)">
+      <img src="images/microsoft-365-logo.png" alt="Microsoft 365" onerror="handleImageError(this)">
+      <img src="images/canva-logo.png" alt="Canva" onerror="handleImageError(this)">
+      <img src="images/Trello-logo.jpg" alt="Trello" onerror="handleImageError(this)">
+      <img src="images/slack-logo.png" alt="Slack" onerror="handleImageError(this)">
+      <img src="images/whatsapp-logo.png" alt="WhatsApp" onerror="handleImageError(this)">
+      <img src="images/teams-logo.png" alt="Teams" onerror="handleImageError(this)">
+      <img src="images/clickup-logo.png" alt="ClickUp" onerror="handleImageError(this)">
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICES SECTION
+       A 2-column grid of service cards. Copy/paste one
+       .service-item block to add another service.
+       ========================================================= -->
+  <section class="services" id="services">
+    <div class="services-head">
+      <p class="section-eyebrow">Services</p>
+      <h2>Estimating support for the full residential build cycle</h2>
+      <p>From first drawings to tender submission — quantity-backed, tender-ready documentation for Australian residential builders and contractors.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-item">
+        <span class="service-tag">Take-off</span>
+        <h3>Residential quantity take-offs</h3>
+        <p>Accurate material and quantity take-offs from architectural and structural drawings, using COSTX, Bluebeam, and PlanSwift.</p>
+      </div>
+      <div class="service-item">
+        <span class="service-tag">BOQ</span>
+        <h3>BOQ preparation</h3>
+        <p>Clear, itemised bills of quantities ready for pricing, procurement, or client sign-off.</p>
+      </div>
+      <div class="service-item">
+        <span class="service-tag">Estimating</span>
+        <h3>Cost estimation support</h3>
+        <p>Quantity-backed cost estimates for residential and light industrial projects, built for tender accuracy.</p>
+      </div>
+      <div class="service-item">
+        <span class="service-tag">Drawings</span>
+        <h3>Construction drawing interpretation</h3>
+        <p>Detailed reading of architectural and structural drawings to flag discrepancies before they cost you at site.</p>
+      </div>
+      <div class="service-item">
+        <span class="service-tag">Tender</span>
+        <h3>Tender and bidding support</h3>
+        <p>Take-off, BOQ, and documentation support through the full bid cycle, from initial scope to submission.</p>
+      </div>
+      <div class="service-item">
+        <span class="service-tag">Coordination</span>
+        <h3>Client &amp; subcontractor coordination</h3>
+        <p>Clear follow-up and documentation across bidding, scoping, and scheduling conversations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       EXPERIENCE / TIMELINE SECTION
+       Copy/paste one .exp-entry block to add another job.
+       ========================================================= -->
+  <section class="experience" id="experience">
+    <div class="experience-head">
+      <p class="section-eyebrow">Experience</p>
+      <h2>Estimating and project coordination</h2>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-year">2022</div>
+      <div>
+        <p class="exp-role">Estimating &amp; Project Coordination</p>
+        <p class="exp-company">AURL Construction Corporation</p>
+        <ul>
+          <li>Prepared cost estimates and quotations for residential and industrial projects</li>
+          <li>Performed quantity take-offs for materials and pricing support</li>
+          <li>Assisted in tender and bid documentation and submission preparation</li>
+          <li>Attended bidding processes and supported tender presentations</li>
+          <li>Coordinated with subcontractors on scope, scheduling, and requirements</li>
+          <li>Managed client follow-ups, meetings, and project documentation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-year">2017</div>
+      <div>
+        <p class="exp-role">Estimator Support (On-the-Job Training)</p>
+        <p class="exp-company">LICA Construction</p>
+        <ul>
+          <li>Interpreted architectural and structural drawings for residential projects</li>
+          <li>Assisted in BOQ preparation and quantity take-offs</li>
+          <li>Supported material measurement and basic cost estimation tasks</li>
+          <li>Handled project documentation and records management</li>
+          <li>Provided coordination support between site and office teams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SAMPLE WORK / PORTFOLIO SECTION
+       Copy/paste one .work-card block to add another sample.
+       Each image falls back to a placeholder box if the file
+       at that path is missing (see script.js: handleImageError).
+       ========================================================= -->
+  <section class="work" id="portfolio">
+    <div class="work-head">
+      <div>
+        <p class="work-eyebrow">Sample work</p>
+        <h2>Residential take-offs, BOQs, and cost estimates</h2>
+      </div>
+      <p class="work-note">Sample outputs from COSTX, Bluebeam, and PlanSwift. Full reports available on request.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <div class="work-card">
+        <div class="thumb-wrap">
+          <img src="images/project-1.jpg" alt="Residential quantity take-off report, single dwelling" onerror="handleImageError(this)">
+          <div class="thumb-placeholder" style="display:none;">
+            <div class="plus">+</div>
+            <span>images/project-1.jpg</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Quantity take-off</span>
+          <h3>Single dwelling — full take-off</h3>
+          <p>COSTX take-off covering structural, finishes, and services quantities for a single-storey residential build.</p>
+          <a class="work-link" href="#contact">Request full sample →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="thumb-wrap">
+          <img src="images/project-2.jpg" alt="Bill of quantities sample, duplex development" onerror="handleImageError(this)">
+          <div class="thumb-placeholder" style="display:none;">
+            <div class="plus">+</div>
+            <span>images/project-2.jpg</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">BOQ preparation</span>
+          <h3>Duplex development — BOQ</h3>
+          <p>Itemised bill of quantities prepared for pricing and procurement across a two-unit residential development.</p>
+          <a class="work-link" href="#contact">Request full sample →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="thumb-wrap">
+          <img src="images/project-3.jpg" alt="Cost estimate summary, residential subdivision" onerror="handleImageError(this)">
+          <div class="thumb-placeholder" style="display:none;">
+            <div class="plus">+</div>
+            <span>images/project-3.jpg</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Cost estimation</span>
+          <h3>Residential subdivision — cost summary</h3>
+          <p>Quantity-backed cost estimate summary supporting a tender submission for a multi-lot residential subdivision.</p>
+          <a class="work-link" href="#contact">Request full sample →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="thumb-wrap">
+          <img src="images/project-1.jpg" alt="Residential quantity take-off report, single dwelling" onerror="handleImageError(this)">
+          <div class="thumb-placeholder" style="display:none;">
+            <div class="plus">+</div>
+            <span>images/project-1.jpg</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Quantity take-off</span>
+          <h3>Single dwelling — full take-off</h3>
+          <p>COSTX take-off covering structural, finishes, and services quantities for a single-storey residential build.</p>
+          <a class="work-link" href="#contact">Request full sample →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="thumb-wrap">
+          <img src="images/project-1.jpg" alt="Residential quantity take-off report, single dwelling" onerror="handleImageError(this)">
+          <div class="thumb-placeholder" style="display:none;">
+            <div class="plus">+</div>
+            <span>images/project-1.jpg</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Quantity take-off</span>
+          <h3>Single dwelling — full take-off</h3>
+          <p>COSTX take-off covering structural, finishes, and services quantities for a single-storey residential build.</p>
+          <a class="work-link" href="#contact">Request full sample →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="thumb-wrap">
+          <img src="images/project-1.jpg" alt="Residential quantity take-off report, single dwelling" onerror="handleImageError(this)">
+          <div class="thumb-placeholder" style="display:none;">
+            <div class="plus">+</div>
+            <span>images/project-1.jpg</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Quantity take-off</span>
+          <h3>Single dwelling — full take-off</h3>
+          <p>COSTX take-off covering structural, finishes, and services quantities for a single-storey residential build.</p>
+          <a class="work-link" href="#contact">Request full sample →</a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT SECTION
+       Contact details on the left, a form on the right.
+       NOTE: The form currently just shows a popup alert on
+       submit — it is not wired up to actually send email yet.
+       You'll need a form service (e.g. Formspree) or your own
+       backend to receive real messages.
+       ========================================================= -->
+  <section class="contact" id="contact">
+    <div>
+      <p class="section-eyebrow">Contact</p>
+      <h2>Let's talk about your next project</h2>
+      <p class="contact-intro">Send through your drawings and scope, and I'll come back to you with a clear timeframe for the take-off, BOQ, or estimate you need.</p>
+
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="mailto:gloriosoivangrace@gmail.com">gloriosoivangrace@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Phone</span>
+        <a href="tel:+639777057747">+63 977 705 7747</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="value">Manila, Philippines — AEST-overlapping hours</span>
+      </div>
+    </div>
+
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="field">
+        <label for="project-type">Project type</label>
+        <select id="project-type" name="project-type">
+          <option>Single dwelling</option>
+          <option>Multi-unit residential</option>
+          <option>Residential subdivision</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project and timeframe" required></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Send message</button>
+    </form>
+  </section>
+
+  <footer>
+    <span>© 2026 Ivan Grace Glorioso</span>
+    <span>Residential Quantity Take-Off Specialist · Cost Estimator · Manila, Philippines</span>
+  </footer>
+
+</div>
+
+<!-- All interactivity (mobile menu, image fallback, form handling) lives in script.js -->
+<script src="script.js"></script>
+</body>
+</html>

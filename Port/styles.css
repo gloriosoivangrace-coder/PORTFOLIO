@@ -1,0 +1,758 @@
+/* =========================================================
+   STYLES.CSS
+   This file controls how the page LOOKS (colors, spacing,
+   fonts, layout). The HTML file controls the CONTENT/structure.
+   The JS file controls what happens when you click things.
+
+   TIP FOR BEGINNERS: Search this file using Ctrl+F (or Cmd+F)
+   for the section name in the banner comments below to jump
+   straight to the part you want to change.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. COLORS (edit these to re-theme the ENTIRE site at once)
+   --------------------------------------------------------- */
+:root{
+  --ink:#132A3A;       /* main dark text color */
+  --blue:#2C5C82;      /* accent blue (labels, links) */
+  --steel:#5C6670;     /* muted gray text (paragraphs) */
+  --paper:#ebe6d0;     /* page background color */
+  --orange:#E85D2C;    /* accent orange (buttons, tags) */
+  --concrete:#DADAD3;  /* light gray borders/lines */
+  --white:#FFFFFF;     /* white */
+}
+
+/* ---------------------------------------------------------
+   2. GLOBAL RESET
+   Removes the browser's default spacing so every browser
+   starts from the same blank slate.
+   --------------------------------------------------------- */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:var(--paper);
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Faint graph-paper style grid behind the whole page */
+.grid-bg{
+  background-image:
+    linear-gradient(var(--concrete) 1px, transparent 1px),
+    linear-gradient(90deg, var(--concrete) 1px, transparent 1px);
+  background-size:40px 40px;
+  background-position:center top;
+}
+
+/* ---------------------------------------------------------
+   3. NAVIGATION BAR (top of page: logo + menu links)
+   --------------------------------------------------------- */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:28px 24px 0;
+}
+.logo{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:22.5px;
+  letter-spacing:0.01em;
+}
+.logo span{color:var(--orange);}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:26px;
+}
+nav a{
+  color:var(--ink);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  opacity:0.75;
+}
+nav a:hover{opacity:1;}
+
+.nav-cta{
+  display:inline-block;
+  border:1.5px solid var(--ink);
+  color:var(--ink);
+  padding:9px 20px;
+  border-radius:2px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+/* Hamburger button, only shown on mobile (see media query below) */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:32px;
+  height:32px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0;
+}
+.menu-toggle span{
+  display:block;
+  width:100%;
+  height:1.5px;
+  background:var(--ink);
+}
+
+/* The dropdown menu that slides open on mobile, controlled by script.js */
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  width:100%;
+  margin-top:20px;
+  border-top:1px solid var(--concrete);
+}
+.mobile-nav.open{display:flex;} /* script.js adds/removes the "open" class */
+.mobile-nav a{
+  display:block;
+  padding:16px 0;
+  border-bottom:1px solid var(--concrete);
+  color:var(--ink);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+}
+
+/* ---------------------------------------------------------
+   4. HERO SECTION (big headline at the top of the page)
+   --------------------------------------------------------- */
+.hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:72px 24px 40px;
+}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Inter','sans-serif';
+  font-size:12.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:26px;
+}
+.eyebrow::before{
+  content:"";
+  width:28px;
+  height:1px;
+  background:var(--orange);
+}
+h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:clamp(34px, 5vw, 58px); /* shrinks on small screens automatically */
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  max-width:16ch;
+}
+h1 em{
+  font-style:normal;
+  color:var(--blue);
+}
+.lede{
+  max-width:56ch;
+  font-size:17px;
+  line-height:1.65;
+  color:var(--steel);
+  margin:26px 0 36px;
+}
+.lede strong{color:var(--ink);font-weight:600;}
+
+.cta-row{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:64px;
+}
+.btn-primary{
+  background:var(--orange);
+  color:var(--white);
+  border:none;
+  padding:15px 28px;
+  font-size:15px;
+  font-weight:600;
+  font-family:'Inter',sans-serif;
+  border-radius:2px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-secondary{
+  color:var(--ink);
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border-bottom:1.5px solid var(--ink);
+  padding-bottom:3px;
+}
+
+/* Dimension-line stat strip (the 3 boxes with COSTX / 100% / AEST) */
+.dims{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border-top:1px solid var(--concrete);
+  padding-top:6px;
+}
+.dim{
+  position:relative;
+  padding:26px 28px 8px 0;
+}
+.dim:not(:last-child){border-right:1px solid var(--concrete);}
+.dim::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:1px;
+  background:var(--ink);
+}
+.dim::after{
+  content:"";
+  position:absolute;
+  top:-3px;
+  left:0;
+  width:1px;
+  height:7px;
+  background:var(--ink);
+}
+.dim .tick-right{
+  position:absolute;
+  top:-3px;
+  right:0;
+  width:1px;
+  height:7px;
+  background:var(--ink);
+}
+.dim-value{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:26px;
+  font-weight:500;
+  color:var(--ink);
+  display:block;
+  margin-top:16px;
+}
+.dim-label{
+  font-size:13px;
+  color:var(--steel);
+  margin-top:6px;
+  line-height:1.4;
+}
+
+/* ---------------------------------------------------------
+   5. SAMPLE WORK / PORTFOLIO CARDS
+   --------------------------------------------------------- */
+.work{
+  max-width:1180px;
+  margin:0 auto;
+  padding:20px 24px 90px;
+}
+.work-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-bottom:36px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--concrete);
+}
+.work-eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:10px;
+}
+.work-head h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:clamp(24px, 3vw, 32px);
+  max-width:20ch;
+}
+.work-note{
+  font-size:14px;
+  color:var(--steel);
+  max-width:34ch;
+}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:28px;
+}
+.work-card{
+  background:var(--white);
+  border:1px solid var(--concrete);
+}
+.thumb-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  background:var(--paper);
+  overflow:hidden;
+  border-bottom:1px solid var(--concrete);
+}
+.thumb-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+/* Shown automatically (by script.js / inline onerror) if an image fails to load */
+.thumb-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px dashed var(--concrete);
+  margin:8px;
+  text-align:center;
+  padding:16px;
+}
+.thumb-placeholder .plus{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  border:1px solid var(--steel);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  color:var(--steel);
+  font-family:'Inter',sans-serif;
+}
+.thumb-placeholder span{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--steel);
+  letter-spacing:0.02em;
+}
+.work-body{padding:20px 22px 24px;}
+.work-tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:10px;
+  display:block;
+}
+.work-card h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:17px;
+  margin-bottom:8px;
+}
+.work-card p{
+  font-size:13.5px;
+  color:var(--steel);
+  line-height:1.6;
+  margin-bottom:16px;
+}
+.work-link{
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1.5px solid var(--ink);
+  padding-bottom:2px;
+}
+
+/* ---------------------------------------------------------
+   6. SHARED SECTION HEADINGS (used by About/Skills/Services/etc.)
+   --------------------------------------------------------- */
+.section-eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:10px;
+}
+section h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:clamp(24px, 3vw, 32px);
+}
+
+/* ---------------------------------------------------------
+   7. ABOUT SECTION
+   --------------------------------------------------------- */
+.about{
+  max-width:1180px;
+  margin:0 auto;
+  padding:80px 24px;
+  border-top:1px solid var(--concrete);
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:56px;
+  align-items:start;
+}
+.about-photo{
+  aspect-ratio:3/4;
+  background:var(--white);
+  border:1px solid var(--concrete);
+  position:relative;
+}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.about-photo .thumb-placeholder{margin:8px;}
+.about h2{max-width:14ch;margin-bottom:20px;}
+.about p{
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--steel);
+  margin-bottom:16px;
+  max-width:60ch;
+}
+.about-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+.badge{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;
+  color:var(--ink);
+  border:1px solid var(--concrete);
+  padding:7px 12px;
+  letter-spacing:0.02em;
+}
+
+/* ---------------------------------------------------------
+   8. SKILLS & TOOLS SECTION
+   --------------------------------------------------------- */
+.skills{
+  max-width:1180px;
+  margin:0 auto;
+  padding:80px 24px;
+  border-top:1px solid var(--concrete);
+}
+.skills-head{margin-bottom:40px;}
+.skills-head h2{max-width:20ch;margin-bottom:12px;}
+.skills-head p{color:var(--steel);font-size:15px;max-width:56ch;}
+.primary-tools{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+  margin-bottom:44px;
+}
+.tool-card{
+  border:1px solid var(--ink);
+  padding:26px 24px;
+  position:relative;
+}
+.tool-card::before{
+  content:"";
+  position:absolute;
+  top:-1px; left:-1px;
+  width:14px; height:1px;
+  background:var(--orange);
+}
+.tool-card::after{
+  content:"";
+  position:absolute;
+  top:-1px; left:-1px;
+  width:1px; height:14px;
+  background:var(--orange);
+}
+.tool-card .tool-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:20px;
+  margin-bottom:8px;
+}
+.tool-card .tool-role{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:12px;
+  display:block;
+}
+.tool-card p{font-size:13.5px;color:var(--steel);line-height:1.6;}
+.secondary-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin-bottom:14px;
+}
+.tag-cloud{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+.tag-cloud img{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  background:transparent; /* show logo transparency instead of a white square */
+  border:none;
+  padding:0;
+  border-radius:0;
+}
+.tag{
+  font-size:13px;
+  color:var(--ink);
+  background:var(--white);
+  border:1px solid var(--concrete);
+  padding:8px 14px;
+}
+
+/* ---------------------------------------------------------
+   9. SERVICES SECTION
+   --------------------------------------------------------- */
+.services{
+  max-width:1180px;
+  margin:0 auto;
+  padding:80px 24px;
+  border-top:1px solid var(--concrete);
+}
+.services-head{margin-bottom:44px;}
+.services-head h2{max-width:22ch;margin-bottom:12px;}
+.services-head p{color:var(--steel);font-size:15px;max-width:56ch;}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1px;
+  background:var(--concrete);
+  border:1px solid var(--concrete);
+}
+.service-item{
+  background:var(--white);
+  padding:32px;
+}
+.service-tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:14px;
+  display:block;
+}
+.service-item h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:18px;
+  margin-bottom:10px;
+}
+.service-item p{
+  font-size:14px;
+  color:var(--steel);
+  line-height:1.65;
+}
+
+/* ---------------------------------------------------------
+   10. EXPERIENCE / TIMELINE SECTION
+   --------------------------------------------------------- */
+.experience{
+  max-width:1180px;
+  margin:0 auto;
+  padding:80px 24px;
+  border-top:1px solid var(--concrete);
+}
+.experience-head{margin-bottom:44px;}
+.experience-head h2{max-width:20ch;}
+.exp-entry{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:32px;
+  padding:32px 0;
+  border-top:1px solid var(--concrete);
+  position:relative;
+}
+.exp-entry:first-of-type{border-top:1px solid var(--ink);}
+.exp-year{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:15px;
+  color:var(--blue);
+  position:relative;
+  padding-left:16px;
+}
+.exp-year::before{
+  content:"";
+  position:absolute;
+  left:0; top:4px;
+  width:1px; height:16px;
+  background:var(--ink);
+}
+.exp-role{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:18px;
+  margin-bottom:4px;
+}
+.exp-company{
+  font-size:13.5px;
+  color:var(--steel);
+  margin-bottom:16px;
+}
+.exp-entry ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.exp-entry li{
+  font-size:14px;
+  color:var(--steel);
+  line-height:1.6;
+  padding-left:16px;
+  position:relative;
+}
+.exp-entry li::before{
+  content:"—";
+  position:absolute;
+  left:0;
+  color:var(--orange);
+}
+
+/* ---------------------------------------------------------
+   11. CONTACT SECTION (info + form)
+   --------------------------------------------------------- */
+.contact{
+  max-width:1180px;
+  margin:0 auto;
+  padding:80px 24px 100px;
+  border-top:1px solid var(--concrete);
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:56px;
+}
+.contact h2{max-width:14ch;margin-bottom:16px;}
+.contact-intro{color:var(--steel);font-size:15px;line-height:1.65;margin-bottom:32px;max-width:44ch;}
+.contact-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 0;
+  border-top:1px solid var(--concrete);
+}
+.contact-row:last-of-type{border-bottom:1px solid var(--concrete);}
+.contact-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--blue);
+  width:90px;
+  flex-shrink:0;
+}
+.contact-row a, .contact-row span.value{
+  font-size:14.5px;
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:500;
+}
+form{display:flex;flex-direction:column;gap:18px;}
+.field label{
+  display:block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin-bottom:8px;
+}
+.field input, .field select, .field textarea{
+  width:100%;
+  border:1px solid var(--concrete);
+  background:var(--white);
+  padding:12px 14px;
+  font-family:'Inter',sans-serif;
+  font-size:14.5px;
+  color:var(--ink);
+}
+.field textarea{resize:vertical;min-height:110px;}
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none;
+  border-color:var(--ink);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.submit-btn{
+  background:var(--orange);
+  color:var(--white);
+  border:none;
+  padding:15px 28px;
+  font-size:15px;
+  font-weight:600;
+  font-family:'Inter',sans-serif;
+  cursor:pointer;
+  align-self:flex-start;
+  margin-top:6px;
+}
+
+/* ---------------------------------------------------------
+   12. FOOTER
+   --------------------------------------------------------- */
+footer{
+  max-width:1180px;
+  margin:0 auto;
+  padding:24px 24px 40px;
+  border-top:1px solid var(--concrete);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:13px;
+  color:var(--steel);
+}
+
+/* ---------------------------------------------------------
+   13. MOBILE / SMALL SCREEN RULES
+   Everything in here only applies when the browser window is
+   760px wide or narrower (phones, small tablets).
+   --------------------------------------------------------- */
+@media (max-width:760px){
+  header{flex-wrap:wrap;padding:24px 20px 0;}
+  nav ul{display:none;}
+  .menu-toggle{display:flex;}
+  .nav-cta{display:none;}
+  .hero{padding:48px 20px 32px;}
+  .dims{grid-template-columns:1fr;}
+  .dim{border-right:none !important;padding-bottom:22px;}
+  .dim:not(:last-child){border-bottom:1px solid var(--concrete);}
+  .work-grid{grid-template-columns:1fr;}
+  .about{grid-template-columns:1fr;padding:56px 20px;}
+  .skills, .services, .experience, .work, .contact{padding-left:20px;padding-right:20px;}
+  .primary-tools{grid-template-columns:1fr;}
+  .service-grid{grid-template-columns:1fr;}
+  .exp-entry{grid-template-columns:1fr;gap:10px;}
+  .contact{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
